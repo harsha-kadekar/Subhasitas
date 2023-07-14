@@ -1,4 +1,6 @@
-use std::convert::Infalliable;
+#![deny(warnings)]
+
+use std::convert::Infallible;
 use std::net::SocketAddr;
 
 use http_body_util::Full;
@@ -9,8 +11,8 @@ use hyper::{Request, Response};
 use tokio::net::TcpListener;
 
 
-async fn hello(_: Request<hyper::body::Incoming>) -> Result<Response<Full<Bytes>>, Infalliable> {
-    Ok(Response::new(Full::new(Byptes::from("Namaste!"))))
+async fn hello(_: Request<hyper::body::Incoming>) -> Result<Response<Full<Bytes>>, Infallible> {
+    Ok(Response::new(Full::new(Bytes::from("Namaste!"))))
 }
 
 #[tokio::main]
